@@ -1,0 +1,15 @@
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\Contractors.Services.deps.json
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\ref\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\Contractors.Services.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\Contractors.Data.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp5.0\Contractors.Data.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.csproj.AssemblyReference.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.AssemblyInfoInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.AssemblyInfo.cs
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.csproj.CoreCompileInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.csproj.CopyComplete
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\ref\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp5.0\Contractors.Services.pdb

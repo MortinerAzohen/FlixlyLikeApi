@@ -1,0 +1,12 @@
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\bin\Debug\netcoreapp3.1\Contractors.Data.deps.json
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\bin\Debug\netcoreapp3.1\Contractors.Data.runtimeconfig.json
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\bin\Debug\netcoreapp3.1\Contractors.Data.runtimeconfig.dev.json
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\bin\Debug\netcoreapp3.1\Contractors.Data.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\bin\Debug\netcoreapp3.1\Contractors.Data.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.AssemblyInfoInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.AssemblyInfo.cs
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.csproj.CoreCompileInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.genruntimeconfig.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Data\obj\Debug\netcoreapp3.1\Contractors.Data.csproj.AssemblyReference.cache

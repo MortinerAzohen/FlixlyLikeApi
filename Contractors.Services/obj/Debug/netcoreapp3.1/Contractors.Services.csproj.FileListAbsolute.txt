@@ -1,0 +1,12 @@
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp3.1\Contractors.Services.deps.json
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp3.1\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp3.1\Contractors.Services.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.AssemblyInfoInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.AssemblyInfo.cs
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.csproj.CoreCompileInputs.cache
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp3.1\Contractors.Data.dll
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\bin\Debug\netcoreapp3.1\Contractors.Data.pdb
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.csproj.CopyComplete
+C:\Users\Mortiner\source\repos\ContractorAPI\Contractors.Services\obj\Debug\netcoreapp3.1\Contractors.Services.csproj.AssemblyReference.cache
