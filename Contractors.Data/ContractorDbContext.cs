@@ -23,5 +23,6 @@ namespace Contractors.Data
         public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<JobCategory> JobCategories {get;set;}
+        public virtual DbSet<Offer> Offers { get; set; }
     }
 }

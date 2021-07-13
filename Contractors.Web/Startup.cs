@@ -1,8 +1,10 @@
 using Contractors.Data;
 using Contractors.Data.Models;
 using Contractors.Data.Settings;
+using Contractors.Services;
 using Contractors.Services.Address;
 using Contractors.Services.Company;
+using Contractors.Services.ContractService;
 using Contractors.Services.Job;
 using Contractors.Services.User;
 using Contractors.Web.Helper;
@@ -49,6 +51,7 @@ namespace Contractors.Web
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IJobService,JobService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IContractService, ContractService>();
 
             services.AddAuthentication(options =>
             {
