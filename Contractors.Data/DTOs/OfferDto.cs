@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Contractors.Data.DTOs
 {
@@ -19,7 +16,7 @@ namespace Contractors.Data.DTOs
         public string Currency { get; set; }
         public string AdditionalInformation { get; set; }
         public int PrevOfferId { get; set; }
-        public List<int> jobsId { get; set; }
+        public List<int> JobsId { get; set; }
         
 
     }

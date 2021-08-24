@@ -24,9 +24,65 @@ namespace Contractors.Services.ContractService
             _mapper = mapper;
             _userManager = userManager;
         }
-        public Task<BaseReturnModel<Offer>> AcceptOffer(bool IsOfferAccepted)
+        public async Task<BaseReturnModel<Offer>> AcceptOffer(bool IsOfferAccepted, string userId, int offerId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<Offer>();
+            var offer = await _db.Offers.Include(o => o.Customer)
+                                        .Include(o => o.ChoosenJobs)
+                                        .Include(o => o.SellerCompany)
+                                        .ThenInclude(c => c.Contractor)
+                                        .FirstOrDefaultAsync(o => o.Id == offerId && (o.Customer.Id == userId || o.SellerCompany.Contractor.Id == userId));
+            if(offer == null)
+            {
+                baseModel.ErrorMessage = "Offer not exist";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                if(offer.Customer.Id == userId)
+                {
+                    offer.IsAcceptedByCustomer = true;
+                }
+                else
+                {
+                    offer.IsAcceptedByCompany = true;
+                }
+
+                if(offer.IsAcceptedByCompany == true && offer.IsAcceptedByCustomer == true)
+                {
+                    var contract = new Contract
+                    {
+                        StartDate = offer.StartDate,
+                        EndDate = offer.EndDate,
+                        AcceptedPrice = offer.PrizeProposition,
+                        Currency = offer.Currency,
+                        ChoosenJobs = offer.ChoosenJobs,
+                        Customer = offer.Customer,
+                        SellerCompany = offer.SellerCompany,
+                        AdditionalInformation = offer.AdditionalInformation,
+                        Offers = await _db.Offers.Where(o => o.ActualOfferId == offer.Id).ToListAsync()
+                    };
+                    _db.Add(contract);
+                }
+
+                var success = await _db.SaveChangesAsync() > 0;
+                if (success)
+                {
+                    baseModel.IsCorrect = true;
+                    baseModel.Model = offer;
+                    return baseModel;
+                }
+                else
+                {
+                    baseModel.ErrorMessage = "Unable to accept offer to database";
+                    baseModel.IsCorrect = false;
+                    baseModel.Model = null;
+                    return baseModel;
+                }
+            }
+
         }
 
         public async Task<BaseReturnModel<OfferDto>> CreateOffer(OfferDto offerDto)
@@ -60,7 +116,7 @@ namespace Contractors.Services.ContractService
             {
                 foreach(var job in company.CompanyJobs)
                 {
-                    if(!offerDto.jobsId.Contains(job.Id))
+                    if(!offerDto.JobsId.Contains(job.Id))
                     {
                         baseModel.ErrorMessage = "This company doesn't have one of selected jobs";
                         baseModel.IsCorrect = false;
@@ -104,12 +160,14 @@ namespace Contractors.Services.ContractService
         public async Task<BaseReturnModel<OfferDto>> CreateReplayForOffer(OfferDto offerDto)
         {
             var baseModel = new BaseReturnModel<OfferDto>();
-            var lastOffer = await _db.Offers.Include(o => o.Customer)
+            var oldOffers = await _db.Offers.Include(o => o.Customer)
                                             .Include(o => o.ChoosenJobs)
                                             .Include(o => o.SellerCompany)
                                             .ThenInclude(c=>c.CompanyJobs)
-                                            .FirstOrDefaultAsync(o => o.Id == offerDto.PrevOfferId);
-            if (lastOffer == null)
+                                            .OrderBy(o=>o.Id)
+                                            .Where(o => o.Id == offerDto.PrevOfferId).ToListAsync();
+            var lastOffer = oldOffers.First();
+            if (oldOffers == null)
             {
                 baseModel.ErrorMessage = "Offer doesn't exist";
                 baseModel.IsCorrect = false;
@@ -134,7 +192,7 @@ namespace Contractors.Services.ContractService
             {
                 foreach (var job in lastOffer.SellerCompany.CompanyJobs)
                 {
-                    if (!offerDto.jobsId.Contains(job.Id))
+                    if (!offerDto.JobsId.Contains(job.Id))
                     {
                         baseModel.ErrorMessage = "This company doesn't have one of selected jobs";
                         baseModel.IsCorrect = false;
@@ -158,7 +216,10 @@ namespace Contractors.Services.ContractService
                 };
                 _db.Add(offer);
                 lastOffer.IsActive = false;
-                lastOffer.ActualOfferId = offer.Id;
+                foreach(var oldOffer in oldOffers)
+                {
+                    oldOffer.ActualOfferId = offer.Id;
+                }
                 var success = await _db.SaveChangesAsync() > 0;
                 if (success)
                 {
