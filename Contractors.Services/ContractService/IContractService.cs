@@ -14,10 +14,10 @@ namespace Contractors.Services
         public Task<BaseReturnModel<OfferDto>> CreateReplayForOffer(OfferDto offerDto);
         public Task<BaseReturnModel<Offer>> AcceptOffer(bool IsOfferAccepted, string userId, int offerId);
         public Task<BaseReturnModel<Offer>> GetOffer(int OfferId);
-        public Task<List<BaseReturnModel<Offer>>> GetMyOffers();
+        public Task<BaseReturnModel<List<Offer>>> GetMyOffers(string userId);
         public Task<BaseReturnModel<Contract>> GetContract(int ContractId);
-        public Task<List<BaseReturnModel<Contract>>> GetMyContracts();
-        public Task<List<BaseReturnModel<Offer>>> GetHistoryOfContract(int ContractId);
+        public Task<BaseReturnModel<List<Contract>>> GetMyContracts(string userId);
+        public Task<BaseReturnModel<List<Offer>>> GetHistoryOfContract(int ContractId);
 
     }
 }

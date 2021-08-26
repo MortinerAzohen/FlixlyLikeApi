@@ -238,29 +238,107 @@ namespace Contractors.Services.ContractService
         }
         
 
-        public Task<BaseReturnModel<Contract>> GetContract(int ContractId)
+        public async Task<BaseReturnModel<Contract>> GetContract(int ContractId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<Contract>();
+            var contract = await _db.Contracts.Include(c => c.Customer)
+                                              .Include(c => c.SellerCompany)
+                                              .FirstOrDefaultAsync(c => c.Id == ContractId);
+            if (contract == null)
+            {
+                baseModel.ErrorMessage = "Contract with this Id doesnt exist";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                baseModel.IsCorrect = true;
+                baseModel.Model = contract;
+                return baseModel;
+            }
+
+
         }
 
-        public Task<List<BaseReturnModel<Offer>>> GetHistoryOfContract(int ContractId)
+        public async Task<BaseReturnModel<List<Offer>>> GetHistoryOfContract(int ContractId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<List<Offer>>();
+            var contract = await _db.Contracts.Include(c => c.Offers).FirstOrDefaultAsync(c => c.Id == ContractId);
+            if (contract == null)
+            {
+                baseModel.ErrorMessage = "Contract with this Id doesnt exist";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                baseModel.IsCorrect = true;
+                baseModel.Model = contract.Offers;
+                return baseModel;
+            }
+
         }
 
-        public Task<List<BaseReturnModel<Contract>>> GetMyContracts()
+        public async Task<BaseReturnModel<List<Contract>>> GetMyContracts(string userId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<List<Contract>>();
+            var contracts =  await _db.Contracts.Where(c => c.Customer.Id == userId || c.SellerCompany.Contractor.Id == userId)
+                                                .ToListAsync();
+            if (contracts == null)
+            {
+                baseModel.ErrorMessage = "User with this Id doesnt have contracts";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                baseModel.IsCorrect = true;
+                baseModel.Model = contracts;
+                return baseModel;
+            }
         }
 
-        public Task<List<BaseReturnModel<Offer>>> GetMyOffers()
+        public async Task<BaseReturnModel<List<Offer>>> GetMyOffers(string userId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<List<Offer>>();
+            var offers = await _db.Offers.Where(o => o.IsActive == true && 
+                                                    (o.Customer.Id == userId ||
+                                                     o.SellerCompany.Contractor.Id == userId)).ToListAsync();
+            if (offers == null)
+            {
+                baseModel.ErrorMessage = "User with this Id doesnt have active offers";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                baseModel.IsCorrect = true;
+                baseModel.Model = offers;
+                return baseModel;
+            }
         }
 
-        public Task<BaseReturnModel<Offer>> GetOffer(int OfferId)
+        public async Task<BaseReturnModel<Offer>> GetOffer(int OfferId)
         {
-            throw new NotImplementedException();
+            var baseModel = new BaseReturnModel<Offer>();
+            var offer = await _db.Offers.FirstOrDefaultAsync(o=>o.Id == OfferId);
+            if (offer == null)
+            {
+                baseModel.ErrorMessage = "Offer doesnt exist";
+                baseModel.IsCorrect = false;
+                baseModel.Model = null;
+                return baseModel;
+            }
+            else
+            {
+                baseModel.IsCorrect = true;
+                baseModel.Model = offer;
+                return baseModel;
+            }
         }
     }
 }
