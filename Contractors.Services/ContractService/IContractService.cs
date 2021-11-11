@@ -12,7 +12,7 @@ namespace Contractors.Services
     {
         public Task<BaseReturnModel<OfferDto>> CreateOffer(OfferDto offerDto);
         public Task<BaseReturnModel<OfferDto>> CreateReplayForOffer(OfferDto offerDto);
-        public Task<BaseReturnModel<Offer>> AcceptOffer(bool IsOfferAccepted, string userId, int offerId);
+        public Task<BaseReturnModel<Offer>> AcceptOffer(string userId, int offerId);
         public Task<BaseReturnModel<Offer>> GetOffer(int OfferId);
         public Task<BaseReturnModel<List<Offer>>> GetMyOffers(string userId);
         public Task<BaseReturnModel<Contract>> GetContract(int ContractId);

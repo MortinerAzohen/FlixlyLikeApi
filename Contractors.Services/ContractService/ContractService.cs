@@ -24,7 +24,7 @@ namespace Contractors.Services.ContractService
             _mapper = mapper;
             _userManager = userManager;
         }
-        public async Task<BaseReturnModel<Offer>> AcceptOffer(bool IsOfferAccepted, string userId, int offerId)
+        public async Task<BaseReturnModel<Offer>> AcceptOffer(string userId, int offerId)
         {
             var baseModel = new BaseReturnModel<Offer>();
             var offer = await _db.Offers.Include(o => o.Customer)
@@ -326,7 +326,7 @@ namespace Contractors.Services.ContractService
         {
             var baseModel = new BaseReturnModel<Offer>();
             var offer = await _db.Offers.FirstOrDefaultAsync(o=>o.Id == OfferId);
-            if (offer == null)
+            if(offer == null)
             {
                 baseModel.ErrorMessage = "Offer doesnt exist";
                 baseModel.IsCorrect = false;

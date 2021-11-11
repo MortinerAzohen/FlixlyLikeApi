@@ -1,14 +1,8 @@
-﻿using AutoMapper;
-using Contractors.Data.DTOs;
-using Contractors.Data.Models;
+﻿using Contractors.Data.DTOs;
 using Contractors.Services.Company;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Contractors.Web.Controllers
